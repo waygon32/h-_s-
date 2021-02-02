@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function DaThuc(n) {
+        this.n = n;
+        this.heSo = []
+        this.nhapHeSo = function () {
+            for (let i = 0; i <= n; i++) {
+                this.heSo[i] = prompt("nhập hệ số")
+            }
+        }
+        this.inDaThuc = function () {
+            let str = "";
+            for (let i = n; i >= 1; i--) {
+                str += this.heSo[i] + "x^" + i + "+";
+            }
+            str += this.heSo[0];
+            return str;
+        }
+    }
+
+    let n1 = prompt("nhập bậc")
+    let dt1 = new DaThuc(n1);
+    dt1.nhapHeSo()
+    console.log(dt1.inDaThuc())
+    let n2 = prompt("nhập bậc đa thức 2")
+    let dt2 = new DaThuc(n2)
+    dt2.nhapHeSo(n2)
+    if(n1>n2) {
+        let dtTong = new DaThuc(n1)
+        for (i =1; i <=(parseInt(n1)-parseInt(n2)); i ++){
+            dt2.heSo.push(0)
+        }
+        for (i = 0; i <=n1; i ++){
+            dtTong.heSo[i] = parseInt(dt1.heSo[i]) +parseInt(dt2.heSo[i])
+        }
+       console.log(dtTong.inDaThuc())
+    }
+</script>
