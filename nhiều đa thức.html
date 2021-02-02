@@ -30,7 +30,7 @@
     let n1 = prompt("nhập bậc")
     let dt1 = new DaThuc(n1);
     dt1.nhapHeSo()
-    console.log(dt1.inDaThuc())
+    // console.log(dt1.inDaThuc())
     let n2 = prompt("nhập bậc đa thức 2")
     let dt2 = new DaThuc(n2)
     dt2.nhapHeSo(n2)
@@ -43,5 +43,14 @@
             dtTong.heSo[i] = parseInt(dt1.heSo[i]) +parseInt(dt2.heSo[i])
         }
        console.log(dtTong.inDaThuc())
+    }else {
+        let dtTong = new DaThuc(n2)
+        for (i =1; i <=(parseInt(n2)-parseInt(n1)); i ++){
+            dt1.heSo.push(0)
+        }
+        for (i = 0; i <=n2; i ++){
+            dtTong.heSo[i] = parseInt(dt2.heSo[i]) +parseInt(dt1.heSo[i])
+        }
+        console.log(dtTong.inDaThuc())
     }
 </script>
